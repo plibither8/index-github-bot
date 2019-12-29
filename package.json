@@ -5,5 +5,5 @@
     "gh-got": "^5.0.0",
     "micro": "^7.3.2"
   },
-  "devDependencies": {},
+  "devDependencies": {}
 }
