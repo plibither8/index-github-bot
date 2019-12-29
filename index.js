@@ -9,11 +9,14 @@ module.exports = async req => {
 			body: {
 				title: `Add ${repo.name}`,
 				body: stripIndent`
-				\`\`\`md
-				[${repo.name}](${repo.html_url}) - ${repo.description || ''}
+				\`\`\`yaml
+				- name: ${repo.name}
+				  link: ${repo.html_url}
+				  description: ${repo.description || ''}
+				  archived: false
 				\`\`\`
 
-				[Edit readme](../edit/master/README.md)
+				[Edit index.yaml](../edit/master/index.yaml)
 				`
 			}
 		}).then(() => 'OK', error => {

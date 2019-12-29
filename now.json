@@ -1,0 +1,24 @@
+{
+	"name": "index-github-bot",
+	"version": 2,
+	"env": {
+		"GITHUB_USERNAME": "plibither8",
+		"GITHUB_TOKEN": "@index-github-bot-gh-token"
+	},
+	"github": {
+		"enabled": true,
+		"silent": true
+	},
+	"builds": [
+		{
+			"src": "index.js",
+			"use": "@now/node-server"
+		}
+	],
+	"routes": [
+		{
+			"src": "/(.*)",
+			"dest": "index.js"
+		}
+	]
+}
