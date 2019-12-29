@@ -4,7 +4,11 @@ const stripIndent = require('common-tags/lib/stripIndent');
 
 module.exports = async req => {
 	const {action, repository: repo} = await json(req);
-	if (action === 'created' && !repo.fork && !repo.private) {
+	if (action &&
+		(action === 'created' || action === 'publicized')
+		&& !repo.fork
+		&& !repo.private
+	) {
 		return await github.post(`repos/${process.env.GITHUB_USERNAME}/index/issues`, {
 			body: {
 				title: `Add ${repo.name}`,
